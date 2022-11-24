@@ -1,22 +1,25 @@
 local status, packer = pcall(require, "packer")
 
-
-
-
-
 if not status then
   print("Error loading packer")
   return
 end
+
 local which_key_config = require('user.plugins.which_key')
 local telescope_config = require('user.plugins.telescope')
--- local treesitter_config = require('user.plugins.tree-sitter')
+local null_ls_config = require('user.plugins.null-ls')
 
 packer.startup(function(use)
+
   -- plugins here
+
+  -- manage self
   use 'wbthomason/packer.nvim'
+
+  -- current colorscheme
   use { "catppuccin/nvim", as = "catppuccin" }
 
+  -- help me
   use {
     "folke/which-key.nvim",
     config = function()
@@ -24,6 +27,7 @@ packer.startup(function(use)
     end
   }
 
+  -- you know what this is
   use {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -64,8 +68,14 @@ packer.startup(function(use)
   use { 'nvim-tree/nvim-web-devicons' }
   use { 'onsails/lspkind.nvim' }
 
-  use { "hrsh7th/nvim-cmp",
-    requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline", "hrsh7th/cmp-path" },
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-path"
+    },
   }
 
   -- tree sitter
@@ -136,44 +146,7 @@ packer.startup(function(use)
   use {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
-      local formatting = require("null-ls").builtins.formatting
-      local code_action = require("null-ls").builtins.code_actions
-      local diagnostics = require("null-ls").builtins.diagnostics
-
-      require("null-ls").setup({
-        debug = true,
-        sources = {
-          code_action.cspell,
-          code_action.eslint,
-          code_action.shellcheck,
-          diagnostics.alex,
-          diagnostics.checkmake,
-          diagnostics.clang_check,
-          diagnostics.cspell,
-          diagnostics.eslint,
-          diagnostics.flake8,
-          diagnostics.golangci_lint,
-          diagnostics.jshint,
-          diagnostics.jsonlint,
-          diagnostics.luacheck,
-          diagnostics.markdownlint,
-          diagnostics.shellcheck,
-          diagnostics.sqlfluff,
-          diagnostics.zsh,
-          formatting.black,
-          formatting.cbfmt,
-          formatting.eslint,
-          formatting.gofmt,
-          formatting.goimports,
-          formatting.isort,
-          formatting.jq,
-          formatting.markdownlint,
-          formatting.prettier_standard,
-          formatting.rustywind,
-          formatting.sqlfluff,
-          formatting.stylua,
-        }
-      })
+      require("null-ls").setup(null_ls_config)
     end
   }
 
