@@ -32,7 +32,8 @@ local options = {
   tabstop = 4,
   shiftwidth = 4,
   expandtab = true,
-  softtabstop = 4
+  softtabstop = 4,
+  guifont = "JetBrains Mono:h9"
 
 
 }
