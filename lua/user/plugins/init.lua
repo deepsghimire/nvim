@@ -146,7 +146,42 @@ packer.startup(function(use)
   use {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
-      require("null-ls").setup(null_ls_config)
+      local formatting = require("null-ls").builtins.formatting
+      local code_action = require("null-ls").builtins.code_actions
+      local diagnostics = require("null-ls").builtins.diagnostics
+
+      require("null-ls").setup({
+        debug = true,
+        sources = {
+          code_action.eslint,
+          code_action.shellcheck,
+          diagnostics.alex,
+          diagnostics.checkmake,
+          diagnostics.clang_check,
+          diagnostics.eslint,
+          diagnostics.flake8,
+          diagnostics.golangci_lint,
+          diagnostics.jshint,
+          diagnostics.jsonlint,
+          diagnostics.luacheck,
+          diagnostics.markdownlint,
+          diagnostics.shellcheck,
+          diagnostics.sqlfluff,
+          diagnostics.zsh,
+          formatting.black,
+          formatting.cbfmt,
+          formatting.eslint,
+          formatting.gofmt,
+          formatting.goimports,
+          formatting.isort,
+          formatting.jq,
+          formatting.markdownlint,
+          formatting.prettier_standard,
+          formatting.rustywind,
+          formatting.sqlfluff,
+          formatting.stylua,
+        }
+      })
     end
   }
 
