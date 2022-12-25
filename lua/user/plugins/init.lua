@@ -175,7 +175,7 @@ packer.startup(function(use)
           formatting.isort,
           formatting.jq,
           formatting.markdownlint,
-          formatting.prettier_standard,
+          formatting.prettier,
           formatting.rustywind,
           formatting.sqlfluff,
           formatting.stylua,
