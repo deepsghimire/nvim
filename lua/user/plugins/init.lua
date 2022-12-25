@@ -161,7 +161,6 @@ packer.startup(function(use)
           diagnostics.eslint,
           diagnostics.flake8,
           diagnostics.golangci_lint,
-          diagnostics.jshint,
           diagnostics.jsonlint,
           diagnostics.luacheck,
           diagnostics.markdownlint,
