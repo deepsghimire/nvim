@@ -33,7 +33,7 @@ local options = {
   shiftwidth = 4,
   expandtab = true,
   softtabstop = 4,
-  guifont = "JetBrains Mono:h9"
+  guifont = "JetBrains Mono:h8"
 
 
 }
