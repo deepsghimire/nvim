@@ -5,11 +5,8 @@ if not status then
   return
 end
 
-local which_key_config = require('user.plugins.which_key')
-local telescope_config = require('user.plugins.telescope')
-local null_ls_config = require('user.plugins.null-ls')
 
-packer.startup(function(use)
+config = function(use)
 
   -- plugins here
 
@@ -23,6 +20,7 @@ packer.startup(function(use)
   use {
     "folke/which-key.nvim",
     config = function()
+    local which_key_config = require('user.plugins.which_key')
       require("which-key").setup(which_key_config)
     end
   }
@@ -33,17 +31,18 @@ packer.startup(function(use)
     branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } },
     config = function()
+    local telescope_config = require('user.plugins.telescope')
       require("telescope").setup(telescope_config)
       require('telescope').load_extension("fzf")
     end
   }
-
+----
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
+--
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
-
+--
   use { 'L3MON4D3/LuaSnip',
     tag = "v1.*",
     requires = { 'rafamadriz/friendly-snippets' },
@@ -63,11 +62,11 @@ packer.startup(function(use)
       require("luasnip.loaders.from_vscode").lazy_load()
       require('luasnip').filetype_extend("javascript", { "javascriptreact" })
     end }
-
+--
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'nvim-tree/nvim-web-devicons' }
   use { 'onsails/lspkind.nvim' }
-
+--
   use {
     "hrsh7th/nvim-cmp",
     requires = {
@@ -77,8 +76,8 @@ packer.startup(function(use)
       "hrsh7th/cmp-path"
     },
   }
-
-  -- tree sitter
+--
+--  -- tree sitter
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -87,7 +86,9 @@ packer.startup(function(use)
     end,
   }
 
-  -- surround
+
+--
+--  -- surround
   use({
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -109,7 +110,7 @@ packer.startup(function(use)
       }
     end
   }
-
+--
   use {
     "windwp/nvim-autopairs",
     config = function()
@@ -122,11 +123,11 @@ packer.startup(function(use)
       )
     end
   }
-
+--
   use { "windwp/nvim-ts-autotag", config = function()
     require('nvim-ts-autotag').setup()
   end }
-
+--
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -184,7 +185,8 @@ packer.startup(function(use)
     end
   }
 
-end)
+end
+packer.startup(config)
 
 require('user.plugins.completion')
 require('user.plugins.tree-sitter')
