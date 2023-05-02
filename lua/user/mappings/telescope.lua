@@ -3,7 +3,7 @@ local wk = require('which-key');
 
 local function themed(fn)
   return function()
-    return fn(require('telescope.themes').get_ivy())
+    return fn(require('telescope.themes').get_dropdown())
   end
 end
 

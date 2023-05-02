@@ -1,6 +1,6 @@
+require('user.commands')
 require("user.options")
 require("user.auto")
 require('user.plugins')
 require('user.lsp')
 require('user.mappings')
-require('user.commands')
