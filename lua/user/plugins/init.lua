@@ -188,6 +188,13 @@ config = function(use)
 			require("nvim-tree").setup({filters = {custom= {"^.git$"}}})
 		end,
 	})
+
+	use ({
+	    'karb94/neoscroll.nvim',
+	    config = function ()
+            require('neoscroll').setup()
+	    end 
+	})
 end
 packer.startup(config)
 
