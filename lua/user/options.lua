@@ -35,10 +35,13 @@ local options = {
 	tildeop = true,
 	timeoutlen = 100,
 	wrapmargin = 1,
+	termguicolors = true,
 }
 
 -- leader key mapping
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- diagnostic config
 local config = {
