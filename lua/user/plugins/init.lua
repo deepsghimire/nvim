@@ -185,15 +185,24 @@ config = function(use)
 	use({
 		"nvim-tree/nvim-tree.lua",
 		config = function()
-			require("nvim-tree").setup({filters = {custom= {"^.git$"}}})
+			require("nvim-tree").setup({ filters = { custom = { "^.git$" } } })
 		end,
 	})
 
-	use ({
-	    'karb94/neoscroll.nvim',
-	    config = function ()
-            require('neoscroll').setup()
-	    end 
+	use({
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("neoscroll").setup()
+		end,
+	})
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			local keymaps = require("user.mappings.gitsigns")
+			require("gitsigns").setup({
+				on_attach = keymaps,
+			})
+		end,
 	})
 end
 packer.startup(config)
