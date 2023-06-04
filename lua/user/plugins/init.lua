@@ -204,6 +204,12 @@ config = function(use)
 			})
 		end,
 	})
+    use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 end
 packer.startup(config)
 
