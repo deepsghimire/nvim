@@ -16,3 +16,4 @@ vim.keymap.set('n', '<leader>fc', themed(builtin.commands), { desc = "available 
 vim.keymap.set('n', '<leader>fm', themed(builtin.commands), { desc = "man pages" })
 vim.keymap.set('n', '<leader>fk', themed(builtin.keymaps), { desc = "find keymaps" })
 vim.keymap.set('n', '<leader>c', themed(builtin.colorscheme), { desc = "colorschemes" })
+vim.keymap.set('n', '<leader>st', themed(builtin.git_status), { desc = "git status" })
