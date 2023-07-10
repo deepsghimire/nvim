@@ -13,6 +13,7 @@ config = function(use)
 
 	-- current colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({"folke/tokyonight.nvim"})
 
 	-- help me
 	use({
